@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FoodNest - Discover Top Restaurants</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .section p {
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .contact-info {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .contact-info p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">🍴 FoodNest</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="./resturants.html">Restaurants</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Discover the Best Restaurants Near You</h1>
+      <form class="search-bar">
+        <input type="text" placeholder="Search by cuisine or restaurant..." />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Top Restaurants</h2>
+    <div class="restaurant-container">
+      <div class="restaurant-card">
+        <img src="https://source.unsplash.com/400x300/?pizza" alt="Pizza Delight" />
+        <div class="card-info">
+          <h3>Pizza Delight</h3>
+          <p>Italian • New York</p>
+          <div class="star-rating">⭐ 4.5 <span>(120 reviews)</span></div>
+          <button class="view-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <img src="https://source.unsplash.com/400x300/?burger" alt="Burger Hub" />
+        <div class="card-info">
+          <h3>Burger Hub</h3>
+          <p>American • LA</p>
+          <div class="star-rating">⭐ 4.2 <span>(89 reviews)</span></div>
+          <button class="view-btn">View Details</button>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <img src="https://source.unsplash.com/400x300/?sushi" alt="Sushi World" />
+        <div class="card-info">
+          <h3>Sushi World</h3>
+          <p>Japanese • SF</p>
+          <div class="star-rating">⭐ 4.8 <span>(102 reviews)</span></div>
+          <button class="view-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="section">
+    <h2>About Us</h2>
+    <p>
+      At <strong>FoodNest</strong>, our mission is to connect food lovers with the best restaurants in town. Whether you're craving a gourmet meal, a cozy coffee spot, or a local street food gem, we've got you covered. Our platform curates top-rated dining spots, complete with reviews, ratings, and menus to help you choose the perfect place for your next meal.
+    </p>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> support@foodnest.com</p>
+      <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+      <p><strong>Address:</strong> 123 Foodie Lane, Flavor Town, USA</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 FoodNest. Crafted with ❤️ for food lovers.</p>
+  </footer>
+</body>
+</html>

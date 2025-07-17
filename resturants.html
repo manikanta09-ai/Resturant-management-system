@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurants</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .restaurant-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .restaurant-card {
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .restaurant-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .restaurant-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-info {
+      padding: 16px;
+    }
+
+    .card-info h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .card-info p {
+      margin: 0 0 10px;
+      color: #777;
+    }
+
+    .star-rating {
+      color: #ff9800;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .view-btn {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .view-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<script>
+    fetch('get_restaurants.php')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.querySelector('.restaurant-container');
+        container.innerHTML = ''; // Clear existing content
+    
+        data.forEach(restaurant => {
+          const card = document.createElement('div');
+          card.className = 'restaurant-card';
+          card.innerHTML = `
+            <img src="${restaurant.image_url}" alt="${restaurant.name}" />
+            <div class="card-info">
+              <h3>${restaurant.name}</h3>
+              <p>${restaurant.cuisine} • ${restaurant.location}</p>
+              <div class="star-rating">⭐ ${restaurant.rating} <span>(${restaurant.reviews} reviews)</span></div>
+              <button class="view-btn">View Details</button>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching restaurant data:', error);
+      });
+    </script>
+    
+  <section class="restaurant-container">
+      <div class="restaurant-container">
+    
+        <!-- Existing 3 cards (example) -->
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?pizza" alt="Pizza Delight" />
+          <div class="card-info">
+            <h3>Pizza Delight</h3>
+            <p>Italian • New York</p>
+            <div class="star-rating">⭐ 4.5 <span>(120 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?burger" alt="Burger Hub" />
+          <div class="card-info">
+            <h3>Burger Hub</h3>
+            <p>American • LA</p>
+            <div class="star-rating">⭐ 4.2 <span>(89 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?sushi" alt="Sushi World" />
+          <div class="card-info">
+            <h3>Sushi World</h3>
+            <p>Japanese • SF</p>
+            <div class="star-rating">⭐ 4.8 <span>(102 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <!-- 20 more restaurants -->
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?noodles" alt="Wok Express" />
+          <div class="card-info">
+            <h3>Wok Express</h3>
+            <p>Chinese • Boston</p>
+            <div class="star-rating">⭐ 4.1 <span>(73 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?tacos" alt="Taco Fiesta" />
+          <div class="card-info">
+            <h3>Taco Fiesta</h3>
+            <p>Mexican • Austin</p>
+            <div class="star-rating">⭐ 4.3 <span>(64 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?steak" alt="Grill Master" />
+          <div class="card-info">
+            <h3>Grill Master</h3>
+            <p>BBQ • Texas</p>
+            <div class="star-rating">⭐ 4.6 <span>(88 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?pasta" alt="Pasta Bella" />
+          <div class="card-info">
+            <h3>Pasta Bella</h3>
+            <p>Italian • Chicago</p>
+            <div class="star-rating">⭐ 4.7 <span>(93 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?ramen" alt="Ramen Town" />
+          <div class="card-info">
+            <h3>Ramen Town</h3>
+            <p>Japanese • Seattle</p>
+            <div class="star-rating">⭐ 4.4 <span>(110 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?biryani" alt="Spice of India" />
+          <div class="card-info">
+            <h3>Spice of India</h3>
+            <p>Indian • Dallas</p>
+            <div class="star-rating">⭐ 4.6 <span>(130 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?kebab" alt="Kebab Kingdom" />
+          <div class="card-info">
+            <h3>Kebab Kingdom</h3>
+            <p>Middle Eastern • Houston</p>
+            <div class="star-rating">⭐ 4.2 <span>(78 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?dosa" alt="South Spice" />
+          <div class="card-info">
+            <h3>South Spice</h3>
+            <p>South Indian • Bangalore</p>
+            <div class="star-rating">⭐ 4.8 <span>(205 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?salad" alt="Green Bites" />
+          <div class="card-info">
+            <h3>Green Bites</h3>
+            <p>Vegan • Portland</p>
+            <div class="star-rating">⭐ 4.5 <span>(98 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?croissant" alt="Paris Café" />
+          <div class="card-info">
+            <h3>Paris Café</h3>
+            <p>French • San Francisco</p>
+            <div class="star-rating">⭐ 4.3 <span>(65 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?seafood" alt="Ocean Bites" />
+          <div class="card-info">
+            <h3>Ocean Bites</h3>
+            <p>Seafood • Miami</p>
+            <div class="star-rating">⭐ 4.6 <span>(112 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?shawarma" alt="Shawarma Spot" />
+          <div class="card-info">
+            <h3>Shawarma Spot</h3>
+            <p>Lebanese • Dubai</p>
+            <div class="star-rating">⭐ 4.4 <span>(89 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?falafel" alt="Falafel House" />
+          <div class="card-info">
+            <h3>Falafel House</h3>
+            <p>Vegan • Tel Aviv</p>
+            <div class="star-rating">⭐ 4.7 <span>(76 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?sweets" alt="Sweet Cravings" />
+          <div class="card-info">
+            <h3>Sweet Cravings</h3>
+            <p>Desserts • Anywhere</p>
+            <div class="star-rating">⭐ 4.9 <span>(200 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?coffee" alt="Brew Bros" />
+          <div class="card-info">
+            <h3>Brew Bros</h3>
+            <p>Coffee • Seattle</p>
+            <div class="star-rating">⭐ 4.6 <span>(134 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?icecream" alt="Cream Cloud" />
+          <div class="card-info">
+            <h3>Cream Cloud</h3>
+            <p>Ice Cream • LA</p>
+            <div class="star-rating">⭐ 4.3 <span>(99 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+        <div class="restaurant-card">
+          <img src="https://source.unsplash.com/400x300/?dimsum" alt="DimSum Alley" />
+          <div class="card-info">
+            <h3>DimSum Alley</h3>
+            <p>Chinese • Singapore</p>
+            <div class="star-rating">⭐ 4.5 <span>(110 reviews)</span></div>
+            <button class="view-btn">View Details</button>
+          </div>
+        </div>
+    
+      </div>
+  </section>
+</body>
+</html>
